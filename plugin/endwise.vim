@@ -59,6 +59,10 @@ augroup endwise " {{{1
         \ let b:endwise_addition = 'end' |
         \ let b:endwise_words = 'function,if,for' |
         \ let b:endwise_syngroups = 'matlabStatement,matlabFunction,matlabConditional,matlabRepeat'
+  autocmd FileType snippets
+        \ let b:endwise_addition = 'endsnippet' |
+        \ let b:endwise_words = 'snippet' |
+        \ let b:endwise_syngroups = 'snipSnippet,snipSnippetHeader,snipSnippetHeaderKeyword'
   autocmd FileType * call s:abbrev()
 augroup END " }}}1
 
