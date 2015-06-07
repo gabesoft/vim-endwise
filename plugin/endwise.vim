@@ -8,6 +8,7 @@ if exists("g:loaded_endwise") || &cp
   finish
 endif
 let g:loaded_endwise = 1
+endif
 
 augroup endwise " {{{1
   autocmd!
@@ -63,6 +64,10 @@ augroup endwise " {{{1
         \ let b:endwise_addition = 'endsnippet' |
         \ let b:endwise_words = 'snippet' |
         \ let b:endwise_syngroups = 'snipSnippet,snipSnippetHeader,snipSnippetHeaderKeyword'
+  autocmd FileType htmldjango
+        \ let b:endwise_addition = '{% end& %}' |
+        \ let b:endwise_words = 'autoescape,block\(\s\+\S*\)\?,blocktrans,cache,comment,filter,for,if,ifchanged,ifequal,ifnotequal,language,spaceless,verbatim,with' |
+        \ let b:endwise_syngroups = 'djangoTagBlock,djangoStatement'
   autocmd FileType * call s:abbrev()
 augroup END " }}}1
 
@@ -73,6 +78,18 @@ function! s:abbrev()
     endfor
   endif
 endfunction
+
+" Functions {{{1
+
+function! EndwiseDiscretionary()
+  return <SID>crend(0)
+endfunction
+
+function! EndwiseAlways()
+  return <SID>crend(1)
+endfunction
+
+" }}}1
 
 " Maps {{{1
 
