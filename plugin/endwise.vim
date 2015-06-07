@@ -8,7 +8,6 @@ if exists("g:loaded_endwise") || &cp
   finish
 endif
 let g:loaded_endwise = 1
-endif
 
 augroup endwise " {{{1
   autocmd!
